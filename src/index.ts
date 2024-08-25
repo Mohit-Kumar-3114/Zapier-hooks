@@ -1,4 +1,4 @@
-import express from "express"
+import express, {Request, Response} from "express"
 import {PrismaClient } from "@prisma/client";
 import { Prisma } from "@prisma/client";
 
@@ -7,7 +7,7 @@ const client = new PrismaClient();
 const app = express();
 app.use(express.json());
 
-app.post("/hooks/catch/:userId/:zapId", async (req, res) => {
+app.post("/hooks/catch/:userId/:zapId", async (req:Request, res:Response) => {
     const zapId = req.params.zapId;
     const body = req.body;
 
